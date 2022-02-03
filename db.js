@@ -233,7 +233,7 @@ const reviews = [
     date: "2020-07-23",
     title: "I love ball",
     comment: "I play basketball with this basketball",
-    rating: 5,
+    rating: 4,
     productId: "f01bcdec-6783-464e-8f9e-8416830f7569",
   },
   {
