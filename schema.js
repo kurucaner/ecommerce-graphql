@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 exports.typeDefs = gql`
   type Query {
@@ -7,6 +7,8 @@ exports.typeDefs = gql`
     product(id: ID!): Product
     categories: [Category!]!
     category(id: ID!): Category
+    reviews: [Review!]!
+    review(id: ID!): Review
   }
 
   type Product {
@@ -18,6 +20,7 @@ exports.typeDefs = gql`
     price: Float!
     onSale: Boolean!
     category: Category
+    reviews: [Review!]!
   }
 
   type Category {
@@ -25,4 +28,11 @@ exports.typeDefs = gql`
     name: String!
     products: [Product!]!
   }
+
+  type Review {
+    id: ID!
+    date: String!
+    title: String!
+    comment: String!
+    rating: Int!  }
 `;

@@ -12,4 +12,9 @@ exports.Query = {
   category: (parent, { id }, { categories }) => {
     return categories.find((category) => category.id === id);
   },
+  reviews: (parent, args, { reviews }) => reviews,
+
+  review: (parent, { id }, { reviews }) => {
+    return reviews.find((review) => review.id === id);
+  },
 };
