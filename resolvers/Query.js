@@ -2,7 +2,14 @@ exports.Query = {
   hello: () => {
     return "World!";
   },
-  products: (parent, args, { products }) => products,
+  products: (parent, { filter }, { products }) => {
+    if (filter.onSale === true) {
+      products = products.filter((product) => {
+        return product.onSale;
+      });
+    }
+    return products;
+  },
 
   product: (parent, { id }, { products }) => {
     return products.find((product) => product.id === id);
