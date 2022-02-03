@@ -3,12 +3,15 @@ exports.Query = {
     return "World!";
   },
   products: (parent, { filter }, { products }) => {
-    if (filter.onSale === true) {
-      products = products.filter((product) => {
-        return product.onSale;
-      });
+    let filterProducts = products;
+    if (filter) {
+      if (filter.onSale === true) {
+        filterProducts = filterProducts.filter((product) => {
+          return product.onSale;
+        });
+      }
     }
-    return products;
+    return filterProducts;
   },
 
   product: (parent, { id }, { products }) => {
